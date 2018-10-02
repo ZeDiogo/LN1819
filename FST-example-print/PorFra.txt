@@ -1,0 +1,5 @@
+0	1	tartaruga	tortoise
+0	1	gato	chat
+0	1	cao	chien
+0	1	rato	souris
+1

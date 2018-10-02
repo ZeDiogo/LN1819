@@ -1,0 +1,5 @@
+0	1	tartaruga	tortuga
+0	1	gato	gato
+0	1	cao	perro
+0	1	rato	raton
+1
