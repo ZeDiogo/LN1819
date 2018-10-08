@@ -34,3 +34,11 @@ echo -n "O resultado da conversao de 11: "
 fstproject --project_output resMes.fst | fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=syms.txt | awk '{print $3}	' ORS=''
 rm -f testMes.fst resMes.fst
 echo ""
+
+# ano
+fstcompile --isymbols=syms.txt --osymbols=syms.txt --keep_isymbols --keep_osymbols   testAno.txt   | fstarcsort >  testAno.fst
+fstcompose testAno.fst ano.fst > resAno.fst
+echo -n "O resultado da conversao de 2018: "
+fstproject --project_output resAno.fst | fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=syms-out.txt | awk '{print $3}	' ORS=''
+rm -f testAno.fst resAno.fst
+echo ""

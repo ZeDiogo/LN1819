@@ -38,3 +38,7 @@ fstdraw    --isymbols=syms.txt --osymbols=syms.txt --portrait dia.fst | dot -Tpd
 ###	convert numeric month to pt
 fstcompile --isymbols=syms.txt --osymbols=syms.txt --keep_isymbols --keep_osymbols   mes.txt   | fstarcsort >  mes.fst
 fstdraw    --isymbols=syms.txt --osymbols=syms.txt --portrait mes.fst | dot -Tpdf  > mes.pdf
+
+### convert numeric year to pt
+fstcompile --isymbols=syms.txt --osymbols=syms.txt --keep_isymbols --keep_osymbols   ano.txt   | fstarcsort >  ano.fst
+fstdraw    --isymbols=syms.txt --osymbols=syms.txt --portrait ano.fst | dot -Tpdf  > ano.pdf
