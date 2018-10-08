@@ -42,3 +42,11 @@ echo -n "O resultado da conversao de 2018: "
 fstproject --project_output resAno.fst | fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=syms-out.txt | awk '{print $3}	' ORS=''
 rm -f testAno.fst resAno.fst
 echo ""
+
+# numerico2texto
+fstcompile --isymbols=syms.txt --osymbols=syms.txt --keep_isymbols --keep_osymbols   testNumerico2texto.txt   | fstarcsort >  testNumerico2texto.fst
+fstcompose testNumerico2texto.fst numerico2texto.fst > resNumerico2texto.fst
+echo -n "O resultado da conversao de 31/01/2087: "
+fstproject --project_output resNumerico2texto.fst | fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=syms-out.txt | awk '{print $3}	' ORS=''
+rm -f testNumerico2texto.fst resNumerico2texto.fst
+echo ""

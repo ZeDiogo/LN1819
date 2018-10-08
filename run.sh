@@ -30,15 +30,26 @@ fstconcat 3.fst year2year.fst > misto2numerico.fst
 fstdraw    --isymbols=syms.txt --osymbols=syms.txt --portrait misto2numerico.fst | dot -Tpdf  > misto2numerico.pdf
 rm -f 1.fst 2.fst 3.fst
 
-### convert numeric days to pt
+### convert numeric days to texto
 fstcompile --isymbols=syms.txt --osymbols=syms.txt --keep_isymbols --keep_osymbols   dia.txt   | fstarcsort >  diaBef.fst
 fstinvert  diaBef.fst > dia.fst
 fstdraw    --isymbols=syms.txt --osymbols=syms.txt --portrait dia.fst | dot -Tpdf  > dia.pdf
 
-###	convert numeric month to pt
+###	convert numeric month to texto
 fstcompile --isymbols=syms.txt --osymbols=syms.txt --keep_isymbols --keep_osymbols   mes.txt   | fstarcsort >  mes.fst
 fstdraw    --isymbols=syms.txt --osymbols=syms.txt --portrait mes.fst | dot -Tpdf  > mes.pdf
 
-### convert numeric year to pt
+### convert numeric year to texto
 fstcompile --isymbols=syms.txt --osymbols=syms.txt --keep_isymbols --keep_osymbols   ano.txt   | fstarcsort >  ano.fst
 fstdraw    --isymbols=syms.txt --osymbols=syms.txt --portrait ano.fst | dot -Tpdf  > ano.pdf
+
+### convert / to de
+fstcompile --isymbols=syms.txt --osymbols=syms.txt --keep_isymbols --keep_osymbols   bar2de.txt   | fstarcsort >  bar2de.fst
+
+### convert numerico to texto
+fstconcat dia.fst bar2de.fst > 1.fst
+fstconcat 1.fst mes.fst > 2.fst
+fstconcat 2.fst bar2de.fst > 3.fst
+fstconcat 3.fst ano.fst > numerico2texto.fst
+fstdraw    --isymbols=syms.txt --osymbols=syms.txt --portrait numerico2texto.fst | dot -Tpdf  > numerico2texto.pdf
+rm -f 1.fst 2.fst 3.fst
