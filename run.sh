@@ -29,3 +29,8 @@ fstconcat 2.fst bar.fst > 3.fst
 fstconcat 3.fst year2year.fst > misto2numerico.fst
 fstdraw    --isymbols=syms.txt --osymbols=syms.txt --portrait misto2numerico.fst | dot -Tpdf  > misto2numerico.pdf
 rm -f 1.fst 2.fst 3.fst
+
+### convert numeric numbers to pt
+fstcompile --isymbols=syms.txt --osymbols=syms.txt --keep_isymbols --keep_osymbols   dia.txt   | fstarcsort >  diaBef.fst
+fstinvert  diaBef.fst > dia.fst
+fstdraw    --isymbols=syms.txt --osymbols=syms.txt --portrait dia.fst | dot -Tpdf  > dia.pdf

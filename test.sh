@@ -17,3 +17,12 @@ echo -n "O resultado da conversao de 15/SET/2018: "
 fstproject --project_output resMisto2numerico.fst | fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=syms.txt | awk '{print $3}	' ORS=''
 rm -f testMisto2numerico.fst resMisto2numerico.fst
 echo ""
+
+#dia
+fstcompile --isymbols=syms.txt --osymbols=syms.txt --keep_isymbols --keep_osymbols   testDia.txt   | fstarcsort >  testDia.fst
+fstcompose testDia.fst dia.fst > resDia.fst
+echo -n "O resultado da conversao de 31: "
+fstproject --project_output resDia.fst | fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=syms-out.txt | awk '{print $3}	' ORS=''
+# fstdraw    --isymbols=syms.txt --osymbols=syms.txt --portrait resDia.fst | dot -Tpdf  > resDia.pdf
+rm -f testDia.fst resDia.fst
+echo ""
