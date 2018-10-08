@@ -26,3 +26,11 @@ fstproject --project_output resDia.fst | fstrmepsilon | fsttopsort | fstprint --
 # fstdraw    --isymbols=syms.txt --osymbols=syms.txt --portrait resDia.fst | dot -Tpdf  > resDia.pdf
 rm -f testDia.fst resDia.fst
 echo ""
+
+# mes
+fstcompile --isymbols=syms.txt --osymbols=syms.txt --keep_isymbols --keep_osymbols   testMes.txt   | fstarcsort >  testMes.fst
+fstcompose testMes.fst mes.fst > resMes.fst
+echo -n "O resultado da conversao de 11: "
+fstproject --project_output resMes.fst | fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=syms.txt | awk '{print $3}	' ORS=''
+rm -f testMes.fst resMes.fst
+echo ""
