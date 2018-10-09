@@ -1,0 +1,2 @@
+28/12/2048;numerico2texto;vinte e oito de dezembro de dois mil e quarenta e oito
+SET;mmm2mm;09

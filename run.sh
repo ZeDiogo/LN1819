@@ -50,6 +50,6 @@ fstcompile --isymbols=syms.txt --osymbols=syms.txt --keep_isymbols --keep_osymbo
 fstconcat dia.fst bar2de.fst > 1.fst
 fstconcat 1.fst mes.fst > 2.fst
 fstconcat 2.fst bar2de.fst > 3.fst
-fstconcat 3.fst ano.fst > numerico2texto.fst
+fstconcat 3.fst ano.fst > numerico2texto_.fst
 fstdraw    --isymbols=syms.txt --osymbols=syms.txt --portrait numerico2texto.fst | dot -Tpdf  > numerico2texto.pdf
 rm -f 1.fst 2.fst 3.fst
