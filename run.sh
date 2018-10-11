@@ -50,7 +50,7 @@ fstcompile --isymbols=syms.txt --osymbols=syms.txt --keep_isymbols --keep_osymbo
 fstconcat dia.fst bar2de.fst > 1.fst
 fstconcat 1.fst mes.fst > 2.fst
 fstconcat 2.fst bar2de.fst > 3.fst
-fstconcat 3.fst ano.fst > numerico2texto_.fst
+fstconcat 3.fst ano.fst > numerico2texto.fst
 fstdraw    --isymbols=syms.txt --osymbols=syms.txt --portrait numerico2texto.fst | dot -Tpdf  > numerico2texto.pdf
 rm -f 1.fst 2.fst 3.fst
 
@@ -78,3 +78,12 @@ fstconcat 2.fst bar.fst > 3.fst
 fstconcat 3.fst year2year.fst > pt2en.fst
 fstdraw    --isymbols=syms.txt --osymbols=syms.txt --portrait pt2en.fst | dot -Tpdf  > pt2en.pdf
 rm -f 1.fst 2.fst 
+
+### convert misto to texto
+fstconcat dia.fst bar2de.fst > 1.fst
+fstcompose mmm2mm.fst mes.fst > mmm2texto.fst
+fstconcat 1.fst mmm2texto.fst > 2.fst
+fstconcat 2.fst bar2de.fst > 3.fst
+fstconcat 3.fst ano.fst > misto2texto.fst
+fstdraw    --isymbols=syms.txt --osymbols=syms.txt --portrait misto2texto.fst | dot -Tpdf  > misto2texto.pdf
+rm -f 1.fst 2.fst 3.fst
