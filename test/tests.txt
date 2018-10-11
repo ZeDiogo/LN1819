@@ -1,2 +1,4 @@
 28/12/2048;numerico2texto;vinte e oito de dezembro de dois mil e quarenta e oito
 SET;mmm2mm;09
+28/SET/2025;pt2en;28/SEP/2025
+28/SEP/2099;en2pt;28/SET/2099

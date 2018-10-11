@@ -53,3 +53,28 @@ fstconcat 2.fst bar2de.fst > 3.fst
 fstconcat 3.fst ano.fst > numerico2texto_.fst
 fstdraw    --isymbols=syms.txt --osymbols=syms.txt --portrait numerico2texto.fst | dot -Tpdf  > numerico2texto.pdf
 rm -f 1.fst 2.fst 3.fst
+
+### en2ptmonth.txt -- convert month en to pt
+fstcompile --isymbols=syms.txt --osymbols=syms.txt --keep_isymbols --keep_osymbols   en2ptmonth.txt   | fstarcsort >  en2ptmonth.fst
+fstinvert en2ptmonth.fst > pt2enmonth.fst
+fstdraw    --isymbols=syms.txt --osymbols=syms.txt --portrait en2ptmonth.fst | dot -Tpdf  > en2ptmonth.pdf
+
+###Invert en2ptmonth to pt2enmonth
+###fstinvert  en2ptmonth > pt2enmonth.fst
+
+### convert en2pt
+fstconcat day2day.fst bar.fst > 1.fst
+fstconcat 1.fst en2ptmonth.fst > 2.fst
+fstconcat 2.fst bar.fst > 3.fst
+fstconcat 3.fst year2year.fst > en2pt.fst
+fstdraw    --isymbols=syms.txt --osymbols=syms.txt --portrait en2pt.fst | dot -Tpdf  > en2pt.pdf
+rm -f 1.fst 2.fst 3.
+
+### convert to pt2en
+### convert en2pt
+fstconcat day2day.fst bar.fst > 1.fst
+fstconcat 1.fst pt2enmonth.fst > 2.fst
+fstconcat 2.fst bar.fst > 3.fst
+fstconcat 3.fst year2year.fst > pt2en.fst
+fstdraw    --isymbols=syms.txt --osymbols=syms.txt --portrait pt2en.fst | dot -Tpdf  > pt2en.pdf
+rm -f 1.fst 2.fst 
