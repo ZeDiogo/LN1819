@@ -3,3 +3,6 @@ SET;mmm2mm;09
 28/SET/2025;pt2en;28/SEP/2025
 28/SEP/2099;en2pt;28/SET/2099
 20/SET/2018;misto2texto;vinte de setembro de dois mil e dezoito
+20/SET/2018;data2texto;vinte de setembro de dois mil e dezoito
+20/09/2018;data2texto;vinte de setembro de dois mil e dezoito
+20/9/2018;data2texto;vinte de setembro de dois mil e dezoito

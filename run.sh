@@ -87,3 +87,13 @@ fstconcat 2.fst bar2de.fst > 3.fst
 fstconcat 3.fst ano.fst > misto2texto.fst
 fstdraw    --isymbols=syms.txt --osymbols=syms.txt --portrait misto2texto.fst | dot -Tpdf  > misto2texto.pdf
 rm -f 1.fst 2.fst 3.fst
+
+
+###convert data to texto
+fstconcat dia.fst bar2de.fst > 1.fst
+fstunion mmm2texto.fst mes.fst > mmm2textoemm2texto.fst
+fstconcat 1.fst mmm2textoemm2texto.fst > 2.fst
+fstconcat 2.fst bar2de.fst > 3.fst
+fstconcat 3.fst ano.fst > data2texto.fst
+fstdraw    --isymbols=syms.txt --osymbols=syms.txt --portrait data2texto.fst | dot -Tpdf  > data2texto.pdf
+rm -f 1.fst 2.fst 3.fst
