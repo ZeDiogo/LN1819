@@ -1,3 +1,4 @@
 *.pdf
 *.fst
 .vscode/
+!relatorio.pdf
