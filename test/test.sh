@@ -15,7 +15,7 @@ for i in $(cat < "$INPUT_FILE"); do
 	name=$(cut -d ';' -f1 <<< $i)
 	shortName=$(cut -d '_' -f2 <<< $name)
 	input=$(cut -d ';' -f2 <<< $i)
-	sudo python word2fst.py -s $SYMBOLS $input > "$name"".txt"
+	python word2fst.py -s $SYMBOLS $input > "$name"".txt"
 	fstcompile --isymbols=$SYMBOLS --osymbols=$SYMBOLS --keep_isymbols --keep_osymbols   "$name"".txt"   | fstarcsort >  "$name"".fst"
 	rm -f "$name"".txt"
 done
