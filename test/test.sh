@@ -13,13 +13,14 @@ IFS=$'\n'
 set -f
 for i in $(cat < "$INPUT_FILE"); do
 	name=$(cut -d ';' -f1 <<< $i)
+	shortName=$(cut -d '_' -f2 <<< $name)
 	input=$(cut -d ';' -f2 <<< $i)
 	sudo python word2fst.py -s $SYMBOLS $input > "$name"".txt"
 	fstcompile --isymbols=$SYMBOLS --osymbols=$SYMBOLS --keep_isymbols --keep_osymbols   "$name"".txt"   | fstarcsort >  "$name"".fst"
 	rm -f "$name"".txt"
 done
 
-### Parse input transductor, 
+### Parse input transductor, operation transductor and expected output
 testCounter=0
 IFS=$'\n'       # make newlines the only separator
 set -f          # disable globbing
@@ -30,9 +31,9 @@ for i in $(cat < "$TESTS_FILE"); do
 	testCounter=$((testCounter+1))
 done
 
+### For each test, generate the output tranductor and compare the results to the expected output
 for ((i=0;i<$testCounter;i++)); do
 	#Make script convert input into a transductor
-	TEST_NAME="test_""${TRANSDUCTOR[$i]}"
 	number=$(cut -d '_' -f1 <<< ${INPUT[$i]})
 	RES_NAME="$number""_""${TRANSDUCTOR[$i]}"
 
@@ -41,7 +42,6 @@ for ((i=0;i<$testCounter;i++)); do
 	OUT_PROCESSED=$(echo $OUT | sed -e 's/_/ /g' | xargs)	
 	if [ "$OUT_PROCESSED" == "${OUTPUT[$i]}" ]; then 
 		echo "PASSED TEST $((i+1))"
-		echo "Converted "
 	else
 		echo "FAILED TEST $((i+1))"
 		echo "EXPECTED: ${OUTPUT[$i]}"
@@ -50,7 +50,6 @@ for ((i=0;i<$testCounter;i++)); do
 	
 	if [ "$DEBUG" == "TRUE" ]; then echo -n "${INPUT[$i]} ---- ${TRANSDUCTOR[$i]} ----> $OUT_PROCESSED"; fi
 	# fstdraw    --isymbols=$SYMBOLS --osymbols=$SYMBOLS --portrait "$RES_NAME"".fst" | dot -Tpdf  > "$RES_NAME"".pdf"
-	rm -f "$TEST_NAME"".fst" "$RES_NAME"".fst" "$TEST_NAME"".txt"
 	echo ""
 	echo ""
 done
