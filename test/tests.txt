@@ -1,8 +1,10 @@
-28/12/2048;numerico2texto;vinte e oito de dezembro de dois mil e quarenta e oito
-SET;mmm2mm;09
-28/SET/2025;pt2en;28/SEP/2025
-28/SEP/2099;en2pt;28/SET/2099
-20/SET/2018;misto2texto;vinte de setembro de dois mil e dezoito
-20/SET/2018;data2texto;vinte de setembro de dois mil e dezoito
-20/09/2018;data2texto;vinte de setembro de dois mil e dezoito
-20/9/2018;data2texto;vinte de setembro de dois mil e dezoito
+75255_misto;misto2numerico;15/01/2012
+75255_pt;pt2en;15/JAN/2012
+75255_numerico;numerico2texto;quinze de janeiro de dois mil e doze
+75255_misto;misto2texto;quinze de janeiro de dois mil e doze
+75255_misto;data2texto;quinze de janeiro de dois mil e doze
+94083_misto;misto2numerico;27/01/2013
+94083_pt;pt2en;27/JAN/2013
+94083_numerico;numerico2texto;vinte e sete de janeiro de dois mil e treze
+94083_misto;misto2texto;vinte e sete de janeiro de dois mil e treze
+94083_numerico;data2texto;vinte e sete de janeiro de dois mil e treze
