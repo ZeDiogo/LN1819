@@ -103,3 +103,9 @@ fstrmepsilon data2textoEPS.fst > data2texto.fst
 fstdraw    --isymbols=syms.txt --osymbols=syms.txt --portrait data2texto.fst | dot -Tpdf  > data2texto.pdf
 fstdraw    --isymbols=syms.txt --osymbols=syms.txt --portrait mmm2textoemm2texto.fst | dot -Tpdf  > mmm2textoemm2texto.pdf
 rm -f 1.fst 2.fst 3.fst data2textoEPS.fst
+
+fstarcsort misto2numerico.fst > misto2numericoX.fst
+fstarcsort numerico2texto.fst > numerico2textoX.fst
+fstcompose misto2numericoX.fst numerico2textoX.fst > misto2textoXEPS.fst
+fstrmepsilon misto2textoXEPS.fst > misto2textoX.fst
+fstdraw    --isymbols=syms.txt --osymbols=syms.txt --portrait misto2textoX.fst | dot -Tpdf  > misto2textoX.pdf

@@ -8,3 +8,4 @@
 94083_numerico;numerico2texto;vinte e sete de janeiro de dois mil e treze
 94083_misto;misto2texto;vinte e sete de janeiro de dois mil e treze
 94083_numerico;data2texto;vinte e sete de janeiro de dois mil e treze
+75255_misto;misto2textoX;quinze de janeiro de dois mil e doze
